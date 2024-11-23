@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>admin:</strong>
+  <%= @user.admin%>
+</p>
+
+<p>
+  <strong>username:</strong>
+  <%= @user.username %>
+</p>
+
+<p>
+  <strong>first_name:</strong>
+  <%= @user.first_name %>
+</p>
+
+<p>
+  <strong>last_name:</strong>
+  <%= @user.last_name %>
+</p>
+
+<p>
+  <strong>email:</strong>
+  <%= @user.email %>
+</p>
+
+
+<hr>
+
+<% if @user.teams.any? %>
+  <ul>
+    <% @user.teams.each do |team| %>
+      <li><%=team.name%></li>
+    <% end %> 
+  </ul>
+<% end %>
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>

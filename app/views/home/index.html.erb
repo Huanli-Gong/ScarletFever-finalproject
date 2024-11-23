@@ -1,0 +1,10 @@
+<div class = "welcomePage">
+	<% if current_user.present? && current_user.first_name.present? && current_user.last_name.present? %>
+		<% message = " " + current_user.first_name + " " + current_user.last_name + "!" %>
+	<% else %>
+		<% message = current_user.present? ? current_user.email + "!": 'please sign in!' %>
+	<% end %>
+	
+
+	<h1>Welcome, <%= message %></h1>
+</div>

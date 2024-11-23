@@ -1,0 +1,47 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  po1: 1
+  po2: 1
+  po3: 1
+  po4: 1
+  po5: 1
+  po6: 1
+  po7: 1
+  pc1: 1
+  pc2: 1
+  pc3: 1
+  pc4: 1
+  pv1: 1
+  pv2: 1
+  pv3: 1
+  pv4: 1
+  pv5: 1
+  pd1: 1
+  pd2: 1
+  pd3: 1
+  overall_rating: 1
+  comments: MyText
+
+two:
+  po1: 1
+  po2: 1
+  po3: 1
+  po4: 1
+  po5: 1
+  po6: 1
+  po7: 1
+  pc1: 1
+  pc2: 1
+  pc3: 1
+  pc4: 1
+  pv1: 1
+  pv2: 1
+  pv3: 1
+  pv4: 1
+  pv5: 1
+  pd1: 1
+  pd2: 1
+  pd3: 1
+  overall_rating: 1
+  comments: MyText

@@ -1,0 +1,56 @@
+ <!-- Presentation View-->
+<div class="formInput tableView">
+<h1>Presentations</h1>
+  <label>Filter by name</label> <input type="text" for="name-information" class="form-control">
+  <label>Filter by team</label> <input type="text" for="team-information" class="form-control"> 
+
+  <button onclick="filter()" class="btn btn-primary mb-2">Filter</button>
+  <script type="text/javascript">
+  //this function looks for the corresponding input text on the page and hides any items whose data-information do not contain that text
+  function filter() {
+      //get corresponding input text
+      let name = document.querySelector("input[for=name-information]").value;
+      let team = document.querySelector("input[for=team-information]").value;
+      document.querySelectorAll(".filterable").forEach(function(item) {
+        //remove the hidden class if it is there
+        item.classList.remove('hidden');
+        //if the item whose data-information do not contain that text, adding the 'hidden' class 
+        if (item.getAttribute("name-information").search(name) < 0 || item.getAttribute("team-information").search(team) < 0 ) {
+            item.classList.add('hidden');
+        }
+    });
+  }
+
+	</script>
+<table class="table table-striped table-dark table-bordered">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Team</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @presentations.each do |presentation| %>
+      <tr class="filterable" name-information=<%=presentation.name%> team-information=<%= (Team.find presentation.team_id).name%>>
+        <td scope="row"> <%= presentation.name %></td>
+        <td scope="row"> <%= (Team.find presentation.team_id).name%></td>
+        
+        <td>
+        <!-- If users has posted this presentation, they can see the feedbacks of it. If not, they can add feedback-->
+        <% if current_user.teams.ids.find_index(presentation.team_id) %>
+          <%= link_to 'Show', presentation ,:class=> 'btn btn-primary mb-2'%>
+        <% elsif Feedback.where(presentation_id: presentation.id, user_id: current_user.id).length>0%>
+          <% feedback = Feedback.find_by presentation_id: presentation.id, user_id: current_user.id%>
+          <%= link_to 'Edit Feedback', edit_feedback_path(feedback),:class=> 'btn btn-primary mb-2'%>
+        <% else%>
+          <%= link_to 'Add Feedback', new_presentation_feedback_path(presentation) ,:class=> 'btn btn-warning mb-2'%>
+        <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+</div>

@@ -1,0 +1,166 @@
+<!-- Add feedbacks using a table -->
+<div class="feedbackTable">
+                  
+        <table class="table table-striped table-dark table-bordered">
+          <thead>
+            <tr>
+              <th>Presentation Organization</th>
+              <th>Rating</th>
+
+            </tr>
+          </thead>
+          <tbody>
+
+             
+                <tr>
+                	<th>The introdution gave me a clear idea of the topic.</th>
+                  	<td><%= f.number_field :po1 , :class => "form-control"%></td>
+                </tr>
+                <tr>
+                	<th>The introdution gave me a clear idea of the direction of the presentation would take.</th>
+                  	<td><%= f.number_field :po2 , :class => "form-control"%></td>
+
+                </tr>  
+                <tr>
+                	<th>The presentation presented information in a logical, interesting sequence.</th>
+                  	<td><%= f.number_field :po3 , :class => "form-control"%></td>
+
+                </tr>  
+                <tr>
+                	<th>The conclusion did a good job of summarizing the content of the presentation.</th>
+                  	<td><%= f.number_field :po4 , :class => "form-control"%></td>
+
+                </tr>
+                <tr>
+                	<th>Enough essential information was given to allow me to effectively evaluate the topic</th>
+                  	<td><%= f.number_field :po5 , :class => "form-control"%></td>
+
+                </tr>  
+                <tr>
+                	<th>The presentation was free from irrelevant or filler information.</th>
+                  	<td><%= f.number_field :po6 , :class => "form-control"%></td>
+
+                </tr>
+                <tr>
+                	<th>The presentation filled the time allotted.</th>
+                  	<td><%= f.number_field :po7 , :class => "form-control"%></td>
+
+                </tr>  
+                
+             </tbody>
+          </table>
+          
+          <table class="table table-striped table-dark table-bordered">
+          <thead>
+            <tr>
+              <th>Presentation Content</th>
+              <th>Rating</th>
+
+            </tr>
+          </thead>
+          <tbody>
+                <tr>
+                	<th>I could easily follow the main points of the presentation.</th>
+                  	<td><%= f.number_field :pc1 , :class => "form-control"%></td>
+
+                </tr>
+                <tr>
+                	<th>The presenter had a clear understanding of the material presented</th>
+                  	<td><%= f.number_field :pc2 , :class => "form-control"%></td>
+
+                </tr> 
+                <tr>
+                	<th>The plans, recommendations and/or conclusions are consistent with the findings</th>
+                  	<td><%= f.number_field :pc3 , :class => "form-control"%></td>
+
+                </tr>  
+                <tr>
+                	<th>Presenter answers all questions with explanations and elaboration</th>
+                  	<td><%= f.number_field :pc4 , :class => "form-control"%></td>
+
+                </tr>  
+                    </tbody>
+          </table>
+          
+          
+          <table class="table table-striped table-dark table-bordered">
+          <thead>
+            <tr>
+              <th>Presentation Visuals</th>
+              <th>Rating</th>
+
+            </tr>
+          </thead>
+          <tbody>
+                <tr>
+                	<th>The visuals were effective in enhancing the message</th>
+                  	<td><%= f.number_field :pv1 , :class => "form-control"%></td>
+                </tr>  
+                <tr>
+                	<th>The visuals were legible and easy to read</th>
+                  	<td><%= f.number_field :pv2 , :class => "form-control"%></td>
+                </tr>  
+                <tr>
+                	<th>Visuals were free from grammar and formatting errors</th>
+                  	<td><%= f.number_field :pv3 , :class => "form-control"%></td>
+                </tr>  
+                <tr>
+                	<th>The number of visual aids enhanced the presentation</th>
+                  	<td><%= f.number_field :pv4 , :class => "form-control"%></td>
+                </tr>  
+                <tr>
+                	<th>The visuals were displayed for an appropriate time and had no annoying transition effect</th>
+                  	<td><%= f.number_field :pv5 , :class => "form-control"%></td>
+               </tr>  
+          </tbody> 
+        </thead>
+          
+          
+          <table class="table table-striped table-dark table-bordered">
+          <thead>
+            <tr>
+              <th>Presentation Delivery</th>
+              <th>Rating</th>
+            </tr>
+          </thead>
+            <tbody> 
+               <tr>
+                	<th>The presenter spoke clearly, was easily heard, and maintained an appropriate talking rate</th>
+                  	<td><%= f.number_field :pd1 , :class => "form-control"%></td>
+                  
+               </tr>   
+               <tr>
+                	<th>The presenter maintained a good posture and made effective use of hand and body gesture </th>
+                  	<td><%= f.number_field :pd2 , :class => "form-control"%></td>
+
+               </tr>   
+               <tr>
+                	<th>The presenter maintained eye contact with the audience</th>
+                  	<td><%= f.number_field :pd3 , :class => "form-control"%></td>
+
+               </tr>
+          </tbody>
+        
+          
+          <table class="table table-striped table-dark table-bordered">
+          <thead>
+            <tr>
+              <th>Overall Rating</th>
+              <th>Comments</th>
+
+
+            </tr>
+          </thead>
+          <tbody>
+          	  <tr>
+                  <td> <%= f.number_field :overall_rating, :class => "form-control" %></td>
+                  <td><%= f.text_area :comments, :class => "form-control" %></td>
+
+                </tr>
+                  
+          </tbody>
+        </table>
+  <!-- This feedback belongs to the current user -->      
+  <%= f.hidden_field :user_id, :value => current_user.id%>
+</div>
+  	

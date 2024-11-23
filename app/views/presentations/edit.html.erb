@@ -1,0 +1,289 @@
+<div class = "formInput tableView">
+
+<h1>Adding Feedbacks</h1>
+<!-- Detailed information on the presentation -->
+<% Team.all.each do |team| %>
+  <% if team.presentations.find_index(@presentation) %>
+    <h3>Presentation <%=@presentation.name%> given by <%=team.name%><h3>
+    <h3>Presenter(s):</h3>
+      <ul>
+        <% team.users.each do |user| %>
+          <li><%=user.first_name%> <%=user.last_name%></li> 
+        <%end%>
+      </ul>
+  <%end%>
+<%end%>
+<!-- Show all the feedbacks you have given in a table -->
+<h3>Your Feedbacks</h3>
+  <div class="feedbackTable">         
+        <table class="table table-striped table-dark table-bordered">
+          <thead>
+            <tr>
+              <th>Presentation Organization</th>
+              <% i = 1 %>
+              <% @presentation.feedbacks.each do |feedback| %>
+              <%if feedback.user_id==current_user.id%>
+              <th>Feedback <%= i %> Rating</th>
+              <% i = i + 1 %>
+              <% end %>
+              <% end %>
+
+            </tr>
+          </thead>
+          <tbody>
+
+             
+                <tr>
+                	<th>The introdution gave me a clear idea of the topic.</th>
+                	<% @presentation.feedbacks.each do |feedback| %>
+                  <%if feedback.user_id==current_user.id%>
+                  	<td><%= feedback.po1 %></td>
+                    <% end %>
+                  	<% end %>
+                </tr>
+                <tr>
+                	<th>The introdution gave me a clear idea of the direction of the presentation would take.</th>
+                	<% @presentation.feedbacks.each do |feedback| %>
+                  <%if feedback.user_id==current_user.id%>
+                  	<td><%= feedback.po2 %></td>
+                    <% end %>
+                  	<% end %>
+                </tr>  
+                <tr>
+                	<th>The presentation presented information in a logical, interesting sequence.</th>
+                	<% @presentation.feedbacks.each do |feedback| %>
+                  <%if feedback.user_id==current_user.id%>
+                  	<td><%= feedback.po3 %></td>
+                    <% end %>
+                  	<% end %>
+                </tr>  
+                <tr>
+                	<th>The conclusion did a good job of summarizing the content of the presentation.</th>
+                	<% @presentation.feedbacks.each do |feedback| %>
+                  <%if feedback.user_id==current_user.id%>
+                  	<td><%= feedback.po4 %></td>
+                    <% end %>
+                  	<% end %>
+                </tr>
+                <tr>
+                	<th>Enough essential information was given to allow me to effectively evaluate the topic</th>
+                	<% @presentation.feedbacks.each do |feedback| %>
+                  <%if feedback.user_id==current_user.id%>
+                  	<td><%= feedback.po5 %></td>
+                    <% end %>
+                  	<% end %>
+                </tr>  
+                <tr>
+                	<th>The presentation was free from irrelevant or filler information.</th>
+                	<% @presentation.feedbacks.each do |feedback| %>
+                  <%if feedback.user_id==current_user.id%>
+                  	<td><%= feedback.po6 %></td>
+                    <% end %>
+                  	<% end %>
+                </tr>
+                <tr>
+                	<th>The presentation filled the time allotted.</th>
+                	<% @presentation.feedbacks.each do |feedback| %>
+                  <%if feedback.user_id==current_user.id%>
+                  	<td><%= feedback.po7 %></td>
+                    <% end %>
+                  	<% end %>
+                </tr>  
+                
+             </tbody>
+          </table>
+          
+          <table class="table table-striped table-dark table-bordered">
+          <thead>
+            <tr>
+              <th>Presentation Content</th>
+              <% i = 1 %>
+              <% @presentation.feedbacks.each do |feedback| %>
+              <%if feedback.user_id==current_user.id%>
+              <th>Feedback <%= i %> Rating</th>
+              <% i = i + 1 %>
+              <% end %>
+              <% end %>
+
+            </tr>
+          </thead>
+          <tbody>
+                <tr>
+                	<th>I could easily follow the main points of the presentation.</th>
+                	<% @presentation.feedbacks.each do |feedback| %>
+                  <%if feedback.user_id==current_user.id%>
+                  	<td><%= feedback.pc1 %></td>
+                    <% end %>
+                  	<% end %>
+                </tr>
+                <tr>
+                	<th>The presenter had a clear understanding of the material presented</th>
+                	<% @presentation.feedbacks.each do |feedback| %>
+                  <%if feedback.user_id==current_user.id%>
+                  	<td><%= feedback.pc2 %></td>
+                    <% end %>
+                  	<% end %>
+                </tr> 
+                <tr>
+                	<th>The plans, recommendations and/or conclusions are consistent with the findings</th>
+                	<% @presentation.feedbacks.each do |feedback| %>
+                  <%if feedback.user_id==current_user.id%>
+                  	<td><%= feedback.pc3 %></td>
+                    <% end %>
+                  	<% end %>
+                </tr>  
+                <tr>
+                	<th>Presenter answers all questions with explanations and elaboration</th>
+                	<% @presentation.feedbacks.each do |feedback| %>
+                  <%if feedback.user_id==current_user.id%>
+                  	<td><%= feedback.pc4 %></td>
+                    <% end %>
+                  	<% end %>
+                </tr>  
+                    </tbody>
+          </table>
+          
+          
+          <table class="table table-striped table-dark table-bordered">
+          <thead>
+            <tr>
+              <th>Presentation Visuals</th>
+              <% i = 1 %>
+              <% @presentation.feedbacks.each do |feedback| %>
+              <%if feedback.user_id==current_user.id%>
+              <th>Feedback <%= i %> Rating</th>
+              <% i = i + 1 %>
+              <% end %>
+              <% end %>
+
+            </tr>
+          </thead>
+          <tbody>
+                <tr>
+                	<th>The visuals were effective in enhancing the message</th>
+                	<% @presentation.feedbacks.each do |feedback| %>
+                  <%if feedback.user_id==current_user.id%>
+                  	<td><%= feedback.pv1 %></td>
+                    <% end %>
+                  	<% end %>
+                </tr>  
+                <tr>
+                	<th>The visuals were legible and easy to read</th>
+                	<% @presentation.feedbacks.each do |feedback| %>
+                  <%if feedback.user_id==current_user.id%>
+                  	<td><%= feedback.pv2 %></td>
+                    <% end %>
+                  	<% end %>
+                </tr>  
+                <tr>
+                	<th>Visuals were free from grammar and formatting errors</th>
+                	<% @presentation.feedbacks.each do |feedback| %>
+                  <%if feedback.user_id==current_user.id%>
+                  	<td><%= feedback.pv3 %></td>
+                    <% end %>
+                  	<% end %>
+                </tr>  
+                <tr>
+                	<th>The number of visual aids enhanced the presentation</th>
+                	<% @presentation.feedbacks.each do |feedback| %>
+                  <%if feedback.user_id==current_user.id%>
+                  	<td><%= feedback.pv4 %></td>
+                    <% end %>
+                  	<% end %>
+                </tr>  
+                <tr>
+                	<th>The visuals were displayed for an appropriate time and had no annoying transition effect</th>
+                	<% @presentation.feedbacks.each do |feedback| %>
+                  <%if feedback.user_id==current_user.id%>
+                  	<td><%= feedback.pv5 %></td>
+                    <% end %>
+                  	<% end %>
+               </tr>  
+          </tbody> 
+        </thead>
+          
+          
+          <table class="table table-striped table-dark table-bordered">
+          <thead>
+            <tr>
+              <th>Presentation Delivery</th>
+              <% i = 1 %>
+              <% @presentation.feedbacks.each do |feedback| %>
+              <%if feedback.user_id==current_user.id%>
+              <th>Feedback <%= i %> Rating</th>
+              <% i = i + 1 %>
+              <% end %>
+              <% end %>
+
+            </tr>
+          </thead>
+            <tbody> 
+               <tr>
+                	<th>The presenter spoke clearly, was easily heard, and maintained an appropriate talking rate</th>
+                	<% @presentation.feedbacks.each do |feedback| %>
+                  <%if feedback.user_id==current_user.id%>
+                  	<td><%= feedback.pd1 %></td>
+                    <% end %>
+                  	<% end %>
+                  
+               </tr>   
+               <tr>
+                	<th>The presenter maintained a good posture and made effective use of hand and body gesture </th>
+                	<% @presentation.feedbacks.each do |feedback| %>
+                  <%if feedback.user_id==current_user.id%>
+                  	<td><%= feedback.pd2 %></td>
+                    <% end %>
+                  	<% end %>
+               </tr>   
+               <tr>
+                	<th>The presenter maintained eye contact with the audience</th>
+                	<% @presentation.feedbacks.each do |feedback| %>
+                  <%if feedback.user_id==current_user.id%>
+                  	<td><%= feedback.pd3 %></td>
+                    <% end %>
+                  	<% end %>
+               </tr>
+          </tbody>
+        
+          
+          <table class="table table-striped table-dark table-bordered">
+          <thead>
+            <tr>
+              <% i = 1 %>
+              <th></th>
+              <% @presentation.feedbacks.each do |feedback| %>
+              <%if feedback.user_id==current_user.id%>
+              <th>Feedback <%= i %></th>
+              <% i = i + 1 %>
+              <% end %>
+              <% end %>
+
+            </tr>
+          </thead>
+          <tbody>
+          	  <tr>
+          	  <th>Overall Rating</th>
+          	  <% @presentation.feedbacks.each do |feedback| %>
+              <%if feedback.user_id==current_user.id%>
+                  <td><%= feedback.overall_rating %></td>
+                  <% end %>
+                  <% end %>
+                 </tr>
+                 <tr>
+                 <th>Comments</th>
+                 <% @presentation.feedbacks.each do |feedback| %>
+                 <%if feedback.user_id==current_user.id%>
+                  <td><%= feedback.comments %></td>
+                  <% end %>
+                  <% end %>
+                </tr>
+                  
+          </tbody>
+        </table>
+    </div>
+<!-- Render to form-->
+<%= render 'form', presentation: @presentation %>
+
+<%= link_to 'Back', presentations_path %>
+
+</div>

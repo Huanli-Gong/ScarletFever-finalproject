@@ -1,0 +1,20 @@
+<%= form_with(model: presentation, local: true) do |form| %>
+  <% if presentation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(presentation.errors.count, "error") %> prohibited this presentation from being saved:</h2>
+
+      <ul>
+        <% presentation.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+<!-- Add a feedback to this presentation-->
+  <div class="links">
+   <%=link_to_add_association 'Add more feedbacks', form, :feedbacks  ,:class=> 'btn btn-primary mb-2'%> 
+  </div>
+  <div class="actions">
+    <%= form.submit  :class=> 'btn btn-primary mb-2'%>
+  </div>
+<% end %>

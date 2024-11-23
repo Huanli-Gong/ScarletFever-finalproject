@@ -1,0 +1,452 @@
+ <!-- Presentation Feedback View -->
+<div class="formInput tableView">
+<h1>Presentation: <%= @presentation.name %></h1>
+<% team = Team.find @presentation.team_id %>
+
+    <h2>Team: <%=team.name%></h2>
+    <% if team.users.any? %>
+    <h3>Presenter(s):</h3>
+      <ul>
+        <% team.users.each do |user| %>
+          <li><%=user.first_name%> <%=user.last_name%></li> 
+        <%end%>
+      </ul>
+    <%end%>
+
+
+
+<h3>Feedbacks</h3>
+  <div class="filterable feedbackTable">
+        <table class="table table-striped table-dark table-bordered">
+          <thead>
+            <tr>
+              <th>Presentation Organization</th>
+              <% i = 1 %>
+              <% @presentation.feedbacks.each do |feedback| %>
+                <th>Feedback <%= i %></th>
+                <% i = i + 1 %>
+              <% end %>
+              <th>Average</th>
+
+            </tr>
+          </thead>
+          <tbody>            
+                <tr>
+                	<th>The introdution gave me a clear idea of the topic.</th>
+                  <% sum = 0.0%>
+                  <% j = 0%>
+                	<% @presentation.feedbacks.each do |feedback| %>
+                    <td><%= feedback.po1 %></td>
+                    <% if feedback.po1 != nil %>
+                      <% sum = sum+feedback.po1%>
+                      <% j = j+1%>
+                  	<% end %>
+                  <% end %>
+                  <% if j !=0%>
+                    <td><%= sum/ j%></td>
+                  <%else%>
+                    <td></td>
+                  <%end%>
+                </tr>
+                <tr>
+                	<th>The introdution gave me a clear idea of the direction of the presentation would take.</th>
+                  <% sum = 0.0%>
+                  <% j = 0%>
+                	<% @presentation.feedbacks.each do |feedback| %>
+                  	<td><%= feedback.po2 %></td>
+                    <% if feedback.po2 != nil %>
+                      <% sum = sum+feedback.po2%>
+                      <% j = j+1%>
+                  	<% end %>                    
+                  <% end %>
+                  <% if j !=0%>
+                    <td><%= sum/ j%></td>
+                  <%else%>
+                    <td></td>
+                  <%end%>                  
+                </tr>  
+                <tr>
+                	<th>The presentation presented information in a logical, interesting sequence.</th>
+                  <% sum = 0.0%>
+                  <% j = 0%>
+                	<% @presentation.feedbacks.each do |feedback| %>
+                  	<td><%= feedback.po3 %></td>
+                    <% if feedback.po3 != nil %>
+                      <% sum = sum+feedback.po3%>
+                      <% j = j+1%>
+                  	<% end %>                    
+                  <% end %>
+                  <% if j !=0%>
+                    <td><%= sum/ j%></td>
+                  <%else%>
+                    <td></td>
+                  <%end%> 
+                </tr>  
+                <tr>
+                	<th>The conclusion did a good job of summarizing the content of the presentation.</th>
+                  <% sum = 0.0%>
+                  <% j = 0%>
+                	<% @presentation.feedbacks.each do |feedback| %>
+                  	<td><%= feedback.po4 %></td>
+                    <% if feedback.po4 != nil %>
+                      <% sum = sum+feedback.po4%>
+                      <% j = j+1%>
+                  	<% end %>                    
+                  <% end %>
+                  <% if j !=0%>
+                    <td><%= sum/ j%></td>
+                  <%else%>
+                    <td></td>
+                  <%end%> 
+                </tr>
+                <tr>
+                	<th>Enough essential information was given to allow me to effectively evaluate the topic</th>
+                  <% sum = 0.0%>
+                  <% j = 0%>
+                	<% @presentation.feedbacks.each do |feedback| %>
+                  	<td><%= feedback.po5 %></td>
+                    <% if feedback.po5 != nil %>
+                      <% sum = sum+feedback.po5%>
+                      <% j = j+1%>
+                  	<% end %>                    
+                  <% end %>
+                  <% if j !=0%>
+                    <td><%= sum/ j%></td>
+                  <%else%>
+                    <td></td>
+                  <%end%> 
+                </tr>  
+                <tr>
+                	<th>The presentation was free from irrelevant or filler information.</th>
+                  <% sum = 0.0%>
+                  <% j = 0%>
+                	<% @presentation.feedbacks.each do |feedback| %>
+                  	<td><%= feedback.po6 %></td>
+                    <% if feedback.po6 != nil %>
+                      <% sum = sum+feedback.po6%>
+                      <% j = j+1%>
+                  	<% end %>                    
+                  <% end %>
+                  <% if j !=0%>
+                    <td><%= sum/ j%></td>
+                  <%else%>
+                    <td></td>
+                  <%end%> 
+                </tr>
+                <tr>
+                	<th>The presentation filled the time allotted.</th>
+                  <% sum = 0.0%>
+                  <% j = 0%>
+                	<% @presentation.feedbacks.each do |feedback| %>
+                  	<td><%= feedback.po7 %></td>
+                    <% if feedback.po7 != nil %>
+                      <% sum = sum+feedback.po7%>
+                      <% j = j+1%>
+                  	<% end %>                    
+                  <% end %>
+                  <% if j !=0%>
+                    <td><%= sum/ j%></td>
+                  <%else%>
+                    <td></td>
+                  <%end%> 
+                </tr>  
+                
+             </tbody>
+          </table>        
+          <table class="table table-striped table-dark table-bordered">
+          <thead>
+            <tr>
+              <th>Presentation Content</th>
+              <% i = 1 %>
+              <% @presentation.feedbacks.each do |feedback| %>
+              <th>Feedback <%= i %></th>
+              <% i = i + 1 %>
+              <% end %>
+              <th>Average</th>
+            </tr>
+          </thead>
+          <tbody>
+                <tr>
+                	<th>I could easily follow the main points of the presentation.</th>
+                  <% sum = 0.0%>
+                  <% j = 0%>
+                	<% @presentation.feedbacks.each do |feedback| %>
+                  	<td><%= feedback.pc1 %></td>
+                    <% if feedback.pc1 != nil %>
+                      <% sum = sum+feedback.pc1%>
+                      <% j = j+1%>
+                  	<% end %>                    
+                  <% end %>
+                  <% if j !=0%>
+                    <td><%= sum/ j%></td>
+                  <%else%>
+                    <td></td>
+                  <%end%> 
+                </tr>
+                <tr>
+                	<th>The presenter had a clear understanding of the material presented</th>
+                  <% sum = 0.0%>
+                  <% j = 0%>
+                	<% @presentation.feedbacks.each do |feedback| %>
+                  	<td><%= feedback.pc2 %></td>
+                    <% if feedback.pc2 != nil %>
+                      <% sum = sum+feedback.pc2%>
+                      <% j = j+1%>
+                  	<% end %>                    
+                  <% end %>
+                  <% if j !=0%>
+                    <td><%= sum/ j%></td>
+                  <%else%>
+                    <td></td>
+                  <%end%> 
+                </tr> 
+                <tr>
+                	<th>The plans, recommendations and/or conclusions are consistent with the findings</th>
+                  <% sum = 0.0%>
+                  <% j = 0%>
+                	<% @presentation.feedbacks.each do |feedback| %>
+                  	<td><%= feedback.pc3 %></td>
+                    <% if feedback.pc3 != nil %>
+                      <% sum = sum+feedback.pc3%>
+                      <% j = j+1%>
+                  	<% end %>                    
+                  <% end %>
+                  <% if j !=0%>
+                    <td><%= sum/ j%></td>
+                  <%else%>
+                    <td></td>
+                  <%end%> 
+                </tr>  
+                <tr>
+                	<th>Presenter answers all questions with explanations and elaboration</th>
+                  <% sum = 0.0%>
+                  <% j = 0%>
+                	<% @presentation.feedbacks.each do |feedback| %>
+                  	<td><%= feedback.pc4 %></td>
+                    <% if feedback.pc4 != nil %>
+                      <% sum = sum+feedback.pc4%>
+                      <% j = j+1%>
+                  	<% end %>                    
+                  <% end %>
+                  <% if j !=0%>
+                    <td><%= sum/ j%></td>
+                  <%else%>
+                    <td></td>
+                  <%end%> 
+                </tr>  
+                    </tbody>
+          </table>        
+          <table class="table table-striped table-dark table-bordered">
+          <thead>
+            <tr>
+              <th>Presentation Visuals</th>
+              <% i = 1 %>
+              <% @presentation.feedbacks.each do |feedback| %>
+              <th>Feedback <%= i %></th>
+                <% i = i + 1 %>
+              <% end %>
+              <th>Average</th>
+            </tr>
+          </thead>
+          <tbody>
+                <tr>
+                	<th>The visuals were effective in enhancing the message</th>
+                  <% sum = 0.0%>
+                  <% j = 0%>
+                	<% @presentation.feedbacks.each do |feedback| %>
+                  	<td><%= feedback.pv1 %></td>
+                    <% if feedback.pv1 != nil %>
+                      <% sum = sum+feedback.pv1%>
+                      <% j = j+1%>
+                  	<% end %>                    
+                  <% end %>
+                  <% if j !=0%>
+                    <td><%= sum/ j%></td>
+                  <%else%>
+                    <td></td>
+                  <%end%> 
+                </tr>  
+                <tr>
+                	<th>The visuals were legible and easy to read</th>
+                  <% sum = 0.0%>
+                  <% j = 0%>
+                	<% @presentation.feedbacks.each do |feedback| %>
+                  	<td><%= feedback.pv2 %></td>
+                    <% if feedback.pv2 != nil %>
+                      <% sum = sum+feedback.pv2%>
+                      <% j = j+1%>
+                  	<% end %>                    
+                  <% end %>
+                  <% if j !=0%>
+                    <td><%= sum/ j%></td>
+                  <%else%>
+                    <td></td>
+                  <%end%> 
+                </tr>  
+                <tr>
+                	<th>Visuals were free from grammar and formatting errors</th>
+                  <% sum = 0.0%>
+                  <% j = 0%>
+                	<% @presentation.feedbacks.each do |feedback| %>
+                  	<td><%= feedback.pv3 %></td>
+                    <% if feedback.pv3 != nil %>
+                      <% sum = sum+feedback.pv3%>
+                      <% j = j+1%>
+                  	<% end %>                    
+                  <% end %>
+                  <% if j !=0%>
+                    <td><%= sum/ j%></td>
+                  <%else%>
+                    <td></td>
+                  <%end%> 
+                </tr>  
+                <tr>
+                	<th>The number of visual aids enhanced the presentation</th>
+                  <% sum = 0.0%>
+                  <% j = 0%>
+                	<% @presentation.feedbacks.each do |feedback| %>
+                  	<td><%= feedback.pv4 %></td>
+                    <% if feedback.pv4 != nil %>
+                      <% sum = sum+feedback.pv4%>
+                      <% j = j+1%>
+                  	<% end %>                    
+                  <% end %>
+                  <% if j !=0%>
+                    <td><%= sum/ j%></td>
+                  <%else%>
+                    <td></td>
+                  <%end%> 
+                </tr>  
+                <tr>
+                	<th>The visuals were displayed for an appropriate time and had no annoying transition effect</th>
+                  <% sum = 0.0%>
+                  <% j = 0%>
+                	<% @presentation.feedbacks.each do |feedback| %>
+                  	<td><%= feedback.pv5 %></td>
+                    <% if feedback.pv5 != nil %>
+                      <% sum = sum+feedback.pv5%>
+                      <% j = j+1%>
+                  	<% end %>                    
+                  <% end %>
+                  <% if j !=0%>
+                    <td><%= sum/ j%></td>
+                  <%else%>
+                    <td></td>
+                  <%end%> 
+               </tr>  
+          </tbody> 
+        </thead>
+          
+          
+          <table class="table table-striped table-dark table-bordered">
+          <thead>
+            <tr>
+              <th>Presentation Delivery</th>
+              <% i = 1 %>
+              <% @presentation.feedbacks.each do |feedback| %>
+              <th>Feedback <%= i %></th>
+                <% i = i + 1 %>
+              <% end %>
+              <th>Average</th>
+
+            </tr>
+          </thead>
+            <tbody> 
+               <tr>
+                	<th>The presenter spoke clearly, was easily heard, and maintained an appropriate talking rate</th>
+                  <% sum = 0.0%>
+                  <% j = 0%>
+                	<% @presentation.feedbacks.each do |feedback| %>
+                  	<td><%= feedback.pd1 %></td>
+                    <% if feedback.pd1 != nil %>
+                      <% sum = sum+feedback.pd1%>
+                      <% j = j+1%>
+                  	<% end %>                    
+                  <% end %>
+                  <% if j !=0%>
+                    <td><%= sum/ j%></td>
+                  <%else%>
+                    <td></td>
+                  <%end%> 
+                  
+               </tr>   
+               <tr>
+                	<th>The presenter maintained a good posture and made effective use of hand and body gesture </th>
+                  <% sum = 0.0%>
+                  <% j = 0%>
+                	<% @presentation.feedbacks.each do |feedback| %>
+                  	<td><%= feedback.pd2 %></td>
+                    <% if feedback.pd2 != nil %>
+                      <% sum = sum+feedback.pd2%>
+                      <% j = j+1%>
+                  	<% end %>                    
+                  <% end %>
+                  <% if j !=0%>
+                    <td><%= sum/ j%></td>
+                  <%else%>
+                    <td></td>
+                  <%end%> 
+               </tr>   
+               <tr>
+                	<th>The presenter maintained eye contact with the audience</th>
+                  <% sum = 0.0%>
+                  <% j = 0%>
+                	<% @presentation.feedbacks.each do |feedback| %>
+                  	<td><%= feedback.pd3 %></td>
+                    <% if feedback.pd3 != nil %>
+                      <% sum = sum+feedback.pd3%>
+                      <% j = j+1%>
+                  	<% end %>                    
+                  <% end %>
+                  <% if j !=0%>
+                    <td><%= sum/ j%></td>
+                  <%else%>
+                    <td></td>
+                  <%end%> 
+               </tr>
+          </tbody>
+        
+          
+          <table class="table table-striped table-dark table-bordered">
+          <thead>
+            <tr>
+              <% i = 1 %>
+              <th></th>
+              <% @presentation.feedbacks.each do |feedback| %>
+              <th>Feedback <%= i %></th>
+              <% i = i + 1 %>
+              <% end %>
+              <th>Average</th>
+            </tr>
+          </thead>
+          <tbody>
+          	  <tr>
+          	  <th>Overall Rating</th>
+              <% sum = 0.0%>
+          	  <% @presentation.feedbacks.each do |feedback| %>
+                  <% sum = sum+feedback.overall_rating%>
+                  <td><%= feedback.overall_rating %></td>
+                  <% end %>
+                  <% if @presentation.feedbacks.length !=0%>
+                    <td><%= sum/ @presentation.feedbacks.length%></td>
+                  <%else%>
+                    <td></td>
+                  <%end%> 
+                 </tr>
+                 <tr>
+                 <th>Comments</th>
+                 <% @presentation.feedbacks.each do |feedback| %>
+                  <td><%= feedback.comments %></td>
+                  <% end %>
+                  <td></td>
+                </tr>
+                  
+          </tbody>
+        </table>
+    </div>
+              
+
+          
+  <br>
+  <%= link_to 'Back', presentations_path %>
+</div>

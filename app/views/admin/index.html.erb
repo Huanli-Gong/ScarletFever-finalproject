@@ -1,0 +1,11 @@
+<div class="formInput adminPanel">
+	<iframe src="/adminpanel" id = "myiFrame" title="Admin Page" onLoad='
+		let myiFrame = document.getElementById("myiFrame");
+		let doc = myiFrame.contentDocument;
+   		doc.body.innerHTML = "<style>.navbar-right,.icon-eye-open,.show_in_app_member_link{display: none !important;}</style>" + doc.body.innerHTML;
+   		if(this.contentWindow.location.pathname.indexOf("/")!=-1 && this.contentWindow.location.pathname.length == 1){
+   			   	window.location.href = "/";
+   		}	
+   		'>
+   	</iframe>
+</div>

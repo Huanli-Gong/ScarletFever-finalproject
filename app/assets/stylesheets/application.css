@@ -1,0 +1,204 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require bootstrap
+ *= require_tree .
+ *= require_self
+ */
+ 
+ body {
+ 	background-color: #a6052c;
+
+ }
+ 
+ body iframe {
+ 	margin: 10px 0px;
+ 	width: 95%;
+ 	height: 850px;
+ }
+ 
+ .container-fluid {
+ 	max-width: 95%;
+ }
+ 
+ .content {
+
+ 	text-align: center;
+ 	color: white;
+ 	padding: 0px 0px 30px 0px;
+ 	
+ }
+  
+ .content a {
+ 	color: white;
+ }
+ 
+ .field {
+ 	text-align: left;
+ 	width: 70%;
+ 	margin: 20px auto;
+ 	
+ }
+ 
+ .form-select {
+ 	min-width: 190px;
+ }
+ 
+input.form-control[for=name-information], input.form-control[for=team-information]  {
+ 	max-width: 300px;
+ 	margin: 10px auto;
+
+ }
+ 
+ input.form-control[for=presentation] {
+ 	max-width: 250px;
+ 	display: inline-block;
+ 	margin-right: 10px;
+ 	margin-top: 10px;
+ }
+ 
+  input.form-control[for=presentation] + button {
+ 	display: inline-block;
+ 	margin-top: 5px;
+ }
+  
+ .btn {
+ 	min-width: 120px;
+ }
+ 
+ .field input, .field textarea, td input, td textarea, .form-control, .form-select, select option{
+ 	background-color: rgb(108, 117, 125) !important;
+ 	color: white !important;
+ }
+ 
+ .field input:focus, .field textarea:focus, td input:focus, td textarea:focus, .form-control:focus, .form-select:focus {
+ 	background-color: rgb(108, 117, 125) !important;
+ 	color: white !important;
+ }
+ 
+ 
+ .actions input {
+ 	width: 70%;
+ 	padding: 10px;
+ 	font-size: 17px;
+ 	margin-top: 15px;
+ 	
+ }
+ 
+ .notice, .alert {
+ 	margin: 0px auto;
+ 	position: absolute;
+ 	width: 500px;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	padding: 5px;
+	top: 100px;
+	color: black;
+ }
+ 
+ .notice button, .alert button {
+ 	padding: 10px !important;
+ 	width: 20px;
+ 	height: 20px;
+ }
+ 
+ 
+ .formInput, .welcomePage {
+ 	background-color: rgb(33, 37, 41);
+ 	width: 90%;
+ 	max-width: 600px;
+ 	margin: 50px auto 0px auto;
+ 	color: white;
+ 	padding: 20px 0px 20px 0px;
+ 	border-radius: 15px;
+ 	border: 1px solid black;
+ 	box-shadow: 0 4px 15px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+ }
+ 
+ table {
+ 	display: block;	
+ 	overflow-x: scroll;
+ }
+ 
+ tr th:first-child {
+ 	min-width: 300px;
+ }
+ 
+ .formInput {
+ 	padding-top: 30px;
+ }
+ 
+ .formInput a {
+ 	text-decoration: none;
+ }
+ 
+ .tableView {
+	color: white;
+	width: 95%;
+	padding: 20px 20px;
+	max-width: fit-content;
+	min-width: 500px;
+ }
+ 
+ .feedbackTable {
+	border: 5px solid white;
+	border-radius: 15px;
+	margin: 60px 20px 50px 20px;
+	padding: 20px 20px;
+	display: inline-block;
+	width: 47%;
+	min-width: 650px;
+	background-color: rgb(33, 37, 41);
+}
+ 
+ .adminPanel {
+ 	max-width: 97%;
+ }
+ 
+ .tableView table {
+ 	width: 100%;
+ 	margin: 20px auto;
+ }
+ 
+ input[id="user_remember_me"] {
+ 	float: left;
+ 	width: 20px;
+ 	height: 20px;
+ 	margin-right: 10px;
+ }
+ 
+ label[for="user_remember_me"] {
+ 	width: 120px;
+ 	float: left;
+ }
+ 
+
+ 
+ .welcomePage {
+ 	width: 60%;
+ 	max-width: 800px;
+ 	padding: 30px 20px 20px 20px;
+ 	
+ }
+ 
+ .welcomePage h1 {
+ 	padding: 0px;
+ }
+ 
+ #error_explanation {
+ 	width: 80%;
+ 	font-size: 20px;
+ }
+ 
+ .hidden { display: none; }
+ 
+ 

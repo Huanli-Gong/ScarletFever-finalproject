@@ -1,0 +1,50 @@
+<!-- Created by devise but edited by us: form used to allow the user to register with their information (customized to include username, first name, and last name) -->
+<div class = "formInput">
+
+	<h2>Sign up</h2>
+
+	<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+	  <%= devise_error_messages! %>
+	  <div class="field form-group">
+	    <%= f.label :username%>
+	    <%= f.text_field :username, :class => "form-control"%>
+	  </div>
+
+	  <div class="field form-group">
+	    <%= f.label :first_name%>
+	    <%= f.text_field :first_name, :class => "form-control"%>
+	  </div>
+	  <div class="field form-group">
+	    <%= f.label :last_name%>
+	    <%= f.text_field :last_name, :class => "form-control"%>
+	  </div>
+
+	  <div class="field form-group">
+	    <%= f.label :email%>
+	    <%= f.email_field :email, :class => "form-control"%>
+	  </div>
+
+	  
+	  <div class="field form-group">
+	    <%= f.label :password%>
+	    <% if @validatable %>
+	    <em>(<%= @minimum_password_length %> characters minimum)</em>
+	    <% end %>
+	    <%= f.password_field :password, autocomplete: "off", :class => "form-control"%>
+	    <p>6 characters minimum</p>
+	  </div>
+
+	  <div class="field form-group">
+	    <%= f.label :password_confirmation%>
+	    <%= f.password_field :password_confirmation, autocomplete: "off", :class => "form-control"%>
+	  </div>
+
+	  <div class="actions">
+	    <%= f.submit "Sign up", :class=> 'btn btn-primary mb-2' %>
+	  </div>
+	<% end %>
+	
+	<div class = "formLinks"> 
+		<%= render "devise/shared/links" %>
+	</div>
+</div>

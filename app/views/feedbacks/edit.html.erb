@@ -1,0 +1,8 @@
+<div class="formInput tableView">
+<h1>Editing Feedback</h1>
+<%@presentation=Presentation.find @feedback.presentation_id%>
+<%= render 'form', feedback: @feedback, presentation: @presentation%>
+
+<%= link_to 'Show', @feedback %> |
+<%= link_to 'Back', presentations_path %>
+</div>

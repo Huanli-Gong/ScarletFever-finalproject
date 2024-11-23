@@ -1,0 +1,18 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  host: localhost
+  database: ScarletFeverDB
+  pool: 5
+  username: postgres
+  password: MyPassword
+  timeout: 5000
+test:
+  adapter: postgresql
+  encoding: unicode
+  host: localhost
+  database: ScarletFeverDB
+  pool: 5
+  username: postgres
+  password: MyPassword
+  timeout: 5000
